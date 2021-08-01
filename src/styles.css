@@ -1,0 +1,90 @@
+.pageLayout {
+  padding: 1px 15px;
+  border-style: solid;
+  border-radius: 10px;
+  text-align: center;
+  border-color: purple;
+  background-color: white;
+  font-size: 25px;
+  font-family: "Questrial", sans-serif;
+  border-width: 4px;
+
+  position: absolute;
+  left: 50px;
+  top: 0px;
+}
+
+.buttonloc {
+  position: relative;
+  left: -187px;
+  color: black;
+  border-radius: 30px;
+  top: -33px;
+}
+
+h1 {
+  font-size: 65px;
+  font-family: "Questrial", sans-serif;
+  color: purple;
+  text-align: left;
+  font-weight: lighter;
+}
+
+.form {
+  width: 100px;
+  display: block;
+}
+
+.form-control {
+  width: 55%;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  position: relative;
+
+  left: 57px;
+  bottom: 40px;
+}
+
+.degreessize {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.card-body {
+  color: black;
+}
+
+.card-text {
+  font-size: 20px;
+}
+
+.purpleBorder {
+  border-color: purple;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+}
+
+body {
+  background-image: url(images/purplewaves.jpg);
+  background-repeat: repeat;
+}
+
+.card1 {
+  position: relative;
+  top: -40px;
+  left: 5px;
+}
+
+h6 {
+  color: purple;
+}
+
+hr {
+  border-top: 3px solid black;
+}
