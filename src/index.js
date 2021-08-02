@@ -87,24 +87,42 @@ let searchingForm = document.querySelector("#search-form");
 searchingForm.addEventListener("submit", handleSubmit);
 
 function showTemperature(response) {
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#degrees").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#feels-like").innerHTML =
-    Math.round(response.data.main.feels_like) + " ºC";
-  document.querySelector("#weather").innerHTML =
-    response.data.weather[0].description;
-  document.querySelector("#wind").innerHTML =
-    Math.round(response.data.wind.speed) + " km/h";
-  document.querySelector("#max-temp").innerHTML =
-    Math.round(response.data.main.temp_max) + " ºc";
-  document.querySelector("#min-temp").innerHTML =
-    Math.round(response.data.main.temp_min) + " ºC";
-  document.querySelector("#humidity").innerHTML =
-    response.data.main.humidity + " %";
-    document.querySelector("icon").innerHTML =
-    response.data.weather[0].description;
+  //document.querySelector("#city").innerHTML = response.data.name;
+  //document.querySelector("#degrees").innerHTML = Math.round(
+    //response.data.main.temp
+  //);
+  //document.querySelector("#feels-like").innerHTML =
+    //Math.round(response.data.main.feels_like) + " ºC";
+  //document.querySelector("#weather").innerHTML =
+    //response.data.weather[0].description;
+  //document.querySelector("#wind").innerHTML =
+    //Math.round(response.data.wind.speed) + " km/h";
+  //document.querySelector("#max-temp").innerHTML =
+    //Math.round(response.data.main.temp_max) + " ºc";
+  //document.querySelector("#min-temp").innerHTML =
+    //Math.round(response.data.main.temp_min) + " ºC";
+  //document.querySelector("#humidity").innerHTML =
+    //response.data.main.humidity + " %";
+    //document.querySelector("icon").innerHTML =
+    //response.data.weather[0].description;
+
+  let temperatureElement = document.querySelector("#temperature");
+  let cityElement = document.querySelector("#city");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  
+
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  
+}
+
+
+
    }
 
  
