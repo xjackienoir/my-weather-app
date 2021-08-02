@@ -87,35 +87,6 @@ let searchingForm = document.querySelector("#search-form");
 searchingForm.addEventListener("submit", handleSubmit);
 
 function showTemperature(response) {
-  //let temperatureElement =document.querySelector("temperature");
-  //temperatureElement.innerHTML = Math.round(response.data.main.temp); 
-  
-  //let cityElement = document.querySelector("city");
-  //cityElement.innerHTML = response.data.name; 
-
-  //let feelsLikeElement = document.querySelector("feels-like");
-  //feelsLikeElement.innerHTML =  Math.round(response.data.main.feels_like) + " ºC";
-
-   //let descriptionElement = document.querySelector("#description");
-   //descriptionElement.innerHTML = response.data.weather[0].description;
-
-  //let humidityElement = document.querySelector("#humidity");
-  //humidityElement.innerHTML = response.data.main.humidity;
-  
-  //let windElement = document.querySelector("#wind");
-  //windElement.innerHTML = Math.round(response.data.wind.speed);
-  
-  
-  //let dateElement = document.querySelector("#date");
-  //dateElement.innerHTML = formatDate(response.data.dt * 1000);
-  
-  //let iconElement = document.querySelector("#icon");
-  //iconElement.setAttribute(
-    //"src",
-    //`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  //);
-  //iconElement.setAttribute("alt", response.data.weather[0].description);
-
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#degrees").innerHTML = Math.round(
     response.data.main.temp
@@ -135,10 +106,6 @@ function showTemperature(response) {
     document.querySelector("icon").innerHTML =
     response.data.weather[0].description;
    }
-
-   }
-
-  
 
  
 
