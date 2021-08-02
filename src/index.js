@@ -87,26 +87,39 @@ let searchingForm = document.querySelector("#search-form");
 searchingForm.addEventListener("submit", handleSubmit);
 
 function showTemperature(response) {
-   let temperature = document.querySelector("#temperature");
-  let city = document.querySelector("#city");
-  let feelslike = document.querySelector("#feels-like");
-  let humidity = document.querySelector("#humidity");
-  let wind = document.querySelector("#wind");
-  let date = document.querySelector("#date");
-  let icon = document.querySelector("#icon");
-   }
+  let temperatureElement =document.querySelector("temperature");
+  temperatureElement.innerHTML = Math.round(response.data.main.temp); 
+  
+  let cityElement = document.querySelector("city");
+  cityElement.innerHTML = response.data.name; 
 
-  temperature.innerHTML = Math.round(celsiusTemperature);
-  city.innerHTML = response.data.name;
-  feelslike.innerHTML = response.data.weather[0].description;
-  humidity.innerHTML = response.data.main.humidity;
-  wind.innerHTML = Math.round(response.data.wind.speed);
-  date.innerHTML = formatDate(response.data.dt * 1000);
-  icon.setAttribute(
+  let feelsLikeElement = document.querySelector("feels-like");
+  feelsLikeElement.innerHTML =  Math.round(response.data.main.feels_like) + " ºC";
+
+   let descriptionElement = document.querySelector("#description");
+   descriptionElement.innerHTML = response.data.weather[0].description;
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.main.humidity;
+  
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  
+  
+  let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+
+   }
+
+  
 
  
 
