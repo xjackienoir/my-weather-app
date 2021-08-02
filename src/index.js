@@ -87,23 +87,26 @@ let searchingForm = document.querySelector("#search-form");
 searchingForm.addEventListener("submit", handleSubmit);
 
 function showTemperature(response) {
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#degrees").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#feels-like").innerHTML =
-    Math.round(response.data.main.feels_like) + " ºC";
-  document.querySelector("#weather").innerHTML =
-    response.data.weather[0].description;
-  document.querySelector("#wind").innerHTML =
-    Math.round(response.data.wind.speed) + " km/h";
-  document.querySelector("#max-temp").innerHTML =
-    Math.round(response.data.main.temp_max) + " ºc";
-  document.querySelector("#min-temp").innerHTML =
-    Math.round(response.data.main.temp_min) + " ºC";
-  document.querySelector("#humidity").innerHTML =
-    response.data.main.humidity + " %";
+   let temperatureElement = document.querySelector("#temperature");
+  let cityElement = document.querySelector("#city");
+  let descriptionElement = document.querySelector("#feels-like");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
    }
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 
  
 
