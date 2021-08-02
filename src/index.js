@@ -123,8 +123,6 @@ function showTemperature(response) {
 
 
 
-   }
-
  
 
 function getCurrentLocation(event) {
