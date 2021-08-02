@@ -87,8 +87,6 @@ let searchingForm = document.querySelector("#search-form");
 searchingForm.addEventListener("submit", handleSubmit);
 
 function showTemperature(response) {
-
-  let iconElement = document.querySelector("#icon");
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#degrees").innerHTML = Math.round(
     response.data.main.temp
@@ -107,13 +105,8 @@ function showTemperature(response) {
     response.data.main.humidity + " %";
    }
 
-   iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+ 
 
-  
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
