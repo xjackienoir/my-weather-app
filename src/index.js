@@ -115,6 +115,7 @@ function showTemperature(response) {
   let windElement = document.querySelector("#wind");
   //let maxTempElement = document.querySelector("max-temp");
   //let minTempElement = document.querySelector("min-temp");
+  let iconElement = document.querySelector("icon"); 
   
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -126,6 +127,11 @@ function showTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed) + " km/h";
   //maxTempElement = Math.round(response.data.main.temp_max) + " ºC";
   //minTempElement = Math.round(response.data.main.temp_min) + " ºC";
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
   
 
   
