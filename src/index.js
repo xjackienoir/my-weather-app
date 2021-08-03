@@ -115,7 +115,7 @@ function showTemperature(response) {
   let windElement = document.querySelector("#wind");
   //let maxTempElement = document.querySelector("max-temp");
   //let minTempElement = document.querySelector("min-temp");
-  let iconElement = document.querySelector("icon"); 
+  let iconElement = document.querySelector("#icon"); 
   
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
