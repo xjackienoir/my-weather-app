@@ -98,7 +98,7 @@ function showTemperature(response) {
   //document.querySelector("#wind").innerHTML =
     //Math.round(response.data.wind.speed) + " km/h";
   //document.querySelector("#max-temp").innerHTML =
-    //Math.round(response.data.main.temp_max) + " ºc";
+    //Math.round(response.data.main.temp_max) + " ºC";
   //document.querySelector("#min-temp").innerHTML =
     //Math.round(response.data.main.temp_min) + " ºC";
   //document.querySelector("#humidity").innerHTML =
@@ -106,19 +106,30 @@ function showTemperature(response) {
     //document.querySelector("icon").innerHTML =
     //response.data.weather[0].description;
 
-  let temperatureElement = document.querySelector("#temperature");
-  let cityElement = document.querySelector("#city");
-  let descriptionElement = document.querySelector("#description");
+  let temperatureElement = document.querySelector("#degrees");
+  let cityElement = document.querySelector("h1");
+  let feelsLikeElement = document.querySelector("feels-like") + " ºC";
+  let descriptionElement = document.querySelector("#weather");
+  //let precipitationElement = document.querySelector("precipitation");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
+  let maxTempElement = document.querySelector("max-temp");
+  let minTempElement = document.querySelector("min-temp");
   
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
+  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like); 
   descriptionElement.innerHTML = response.data.weather[0].description;
-  humidityElement.innerHTML = response.data.main.humidity;
-  windElement.innerHTML = Math.round(response.data.wind.speed);
+//preciptionElement.innerHTML = response.data.weather.precipitation; 
+  humidityElement.innerHTML = response.data.main.humidity + " %";
+  windElement.innerHTML = Math.round(response.data.wind.speed) + " km/h";
+  maxTempElement = Math.round(response.data.main.temp_max) + " ºC";
+  minTempElement = Math.round(response.data.main.temp_min) + " ºC";
   
+
+  
+
 }
 
 
