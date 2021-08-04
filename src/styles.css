@@ -88,3 +88,12 @@ h6 {
 hr {
   border-top: 3px solid black;
 }
+
+.weather-temperature .active {
+  color: rbg(33, 33, 33);
+  cursor: default; 
+}
+
+.weather-temperature .active:hover {
+  text decoration: none; 
+}
