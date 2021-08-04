@@ -68,34 +68,11 @@ let searchingForm = document.querySelector("#search-form");
 searchingForm.addEventListener("submit", handleSubmit);
 
 function showTemperature(response) {
-  //document.querySelector("#city").innerHTML = response.data.name;
-  //document.querySelector("#degrees").innerHTML = Math.round(
-    //response.data.main.temp
-  //);
-  //document.querySelector("#feels-like").innerHTML =
-    //Math.round(response.data.main.feels_like) + " ºC";
-  //document.querySelector("#weather").innerHTML =
-    //response.data.weather[0].description;
-  //document.querySelector("#wind").innerHTML =
-    //Math.round(response.data.wind.speed) + " km/h";
-  //document.querySelector("#max-temp").innerHTML =
-    //Math.round(response.data.main.temp_max) + " ºC";
-  //document.querySelector("#min-temp").innerHTML =
-    //Math.round(response.data.main.temp_min) + " ºC";
-  //document.querySelector("#humidity").innerHTML =
-    //response.data.main.humidity + " %";
-    //document.querySelector("icon").innerHTML =
-    //response.data.weather[0].description;
-
   let temperatureElement = document.querySelector("#degrees");
   let cityElement = document.querySelector("h1");
-  //let feelsLikeElement = document.querySelector("feels-like") + " ºC";
   let descriptionElement = document.querySelector("#weather");
-  //let precipitationElement = document.querySelector("precipitation");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  //let maxTempElement = document.querySelector("max-temp");
-  //let minTempElement = document.querySelector("min-temp");
   let iconElement = document.querySelector("#icon"); 
   
 celciusTemperature = response.data.main.temp;
@@ -103,29 +80,17 @@ celciusTemperature = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(celciusTemperature);
   cityElement.innerHTML = response.data.name;
-  //feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like); 
+  
   descriptionElement.innerHTML = response.data.weather[0].description;
-//preciptionElement.innerHTML = response.data.weather.precipitation; 
   humidityElement.innerHTML = response.data.main.humidity + " %";
   windElement.innerHTML = Math.round(response.data.wind.speed) + " km/h";
-  //maxTempElement = Math.round(response.data.main.temp_max) + " ºC";
-  //minTempElement = Math.round(response.data.main.temp_min) + " ºC";
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
- 
-  
+ }
 
-  
-
-}
-
-
-
- 
-
-function getCurrentLocation(event) {
+ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
@@ -161,6 +126,5 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", showCelciusTemperature);
-
 
 searchCity("Toronto");
