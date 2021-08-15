@@ -71,7 +71,7 @@ button {
 }
 
 body {
-  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/012/505/original/waves-repeating-background-pastel-colors-doodle-vector-seamless-pattern-textile-packaging-design_7586-1878.jpg?1625674159);
+  background-image: url(images/purplewaves.jpg);
   background-repeat: repeat;
 }
 
@@ -89,3 +89,19 @@ hr {
   border-top: 3px solid black;
 }
 
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+}
+
+.weather-forecast-tempatures {
+  font-size: 13px;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.6;
+}
