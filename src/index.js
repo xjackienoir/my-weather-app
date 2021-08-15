@@ -7,7 +7,7 @@ let days = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday"
+  "Saturday",
 ];
 let getDay = days[now.getDay()];
 day.innerHTML = `${getDay},`;
@@ -25,7 +25,7 @@ let months = [
   "September",
   "October",
   "November",
-  "December"
+  "December",
 ];
 let getMonth = months[now.getMonth()];
 month.innerHTML = `${getMonth}`;
@@ -48,6 +48,36 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 time.innerHTML = `${hours}:${minutes}`;
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tues"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="weather-forecast-date">${day}</div>
+        <img
+          src="http://openweathermap.org/img/wn/50d@2x.png"
+          alt=""
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> 18° </span>
+          <span class="weather-forecast-temperature-min"> 12° </span>
+        </div>
+      </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
@@ -73,14 +103,13 @@ function showTemperature(response) {
   let descriptionElement = document.querySelector("#weather");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  let iconElement = document.querySelector("#icon"); 
-  
-celciusTemperature = response.data.main.temp;
+  let iconElement = document.querySelector("#icon");
 
+  celciusTemperature = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(celciusTemperature);
   cityElement.innerHTML = response.data.name;
-  
+
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity + " %";
   windElement.innerHTML = Math.round(response.data.wind.speed) + " km/h";
@@ -88,9 +117,9 @@ celciusTemperature = response.data.main.temp;
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
- }
+}
 
- function getCurrentLocation(event) {
+function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
@@ -104,7 +133,6 @@ function searchLocation(position) {
 
 let currentLocationButton = document.querySelector("#buttonLocation");
 currentLocationButton.addEventListener("click", getCurrentLocation);
-
 
 function showFahrenheitTemperature(event) {
   event.preventDefault();
@@ -128,3 +156,4 @@ let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", showCelciusTemperature);
 
 searchCity("Toronto");
+displayForecast();
